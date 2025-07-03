@@ -2,11 +2,10 @@
 import { useState } from 'react'
 import { uploadFile } from '../services/api'
 
-export default function FileChooser() {
+export default function FileChooser({ onSuccess }) {
   const [fileName, setFileName] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [responseData, setResponseData] = useState(null)
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0]
@@ -15,11 +14,10 @@ export default function FileChooser() {
     setFileName(file.name)
     setLoading(true)
     setError(null)
-    setResponseData(null)
 
     try {
       const data = await uploadFile(file)
-      setResponseData(data)
+      if (onSuccess) onSuccess(data)
     } catch (err) {
       setError(err.message)
     } finally {
@@ -49,15 +47,6 @@ export default function FileChooser() {
         <p className="text-red-600 text-sm mt-1">
           Erro: {error}
         </p>
-      )}
-
-      {responseData && (
-        <div className="mt-4 w-full max-w-md p-4 rounded-lg shadow">
-          <h2 className="text-lg font-medium mb-2">Resposta do servidor:</h2>
-          <pre className="text-sm overflow-auto">
-            {JSON.stringify(responseData, null, 2)}
-          </pre>
-        </div>
       )}
     </div>
   )
