@@ -32,6 +32,7 @@ export default function FileChooser({ onSuccess }) {
         <input
           id="foto"
           name="foto"
+          type="file"
           className="input-arquivo hidden"
           onChange={handleFileChange}
         />

@@ -10,6 +10,7 @@
   html { 
     font-family: 'Inter', sans-serif;
     background-color: var(--background);
+    color: #34495E;
    }
 }
 
@@ -17,8 +18,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 2rem 0;
 }
 
 .bloco-arquivo {
