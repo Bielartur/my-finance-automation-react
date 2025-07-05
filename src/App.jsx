@@ -13,8 +13,8 @@ const App = () => {
   };
 
   return (
-    <div className="w-2xl">
-      <h1 className="text-3xl text-[var(--primary)] mb-6">
+    <div className="w-3xl">
+      <h1 className="text-3xl max-w-140 text-[var(--primary)] mb-6">
         Bem vindo ao site para automatizar suas finanças
       </h1>
       <Routes>
